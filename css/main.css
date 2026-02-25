@@ -1,0 +1,163 @@
+/* Base Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #e5e3d4; /* Base beige color */
+    font-family: 'VT323', monospace; /* Retro pixel font */
+    font-size: 20px;
+    color: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Fluid Warping Background Effect */
+.fluid-bg {
+    position: fixed;
+    top: -10%; left: -10%;
+    width: 120%; height: 120%;
+    /* Replace with your actual green fluid background image */
+    background-image: url('../assets/green_bg.webp'); 
+    background-size: cover;
+    background-position: center;
+    z-index: -1; /* Puts it behind everything */
+    /* Slow warp animation */
+    animation: warpEffect 15s ease-in-out infinite alternate;
+}
+
+@keyframes warpEffect {
+    0% { transform: scale(1) translate(0, 0) skew(0deg); }
+    50% { transform: scale(1.05) translate(20px, 15px) skew(1deg); }
+    100% { transform: scale(1.1) translate(-10px, -20px) skew(-1deg); }
+}
+
+/* Layout constraints */
+.page-wrapper {
+    width: 100%;
+    max-width: 1100px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Top Clock Banner */
+.top-banner {
+    background-color: #e5e3d4;
+    text-align: center;
+    padding: 10px;
+    border: 2px solid transparent; /* Allows room for drop shadows if desired */
+    box-shadow: inset 2px 2px 0px #fff, inset -2px -2px 0px #b5b3a3;
+    font-size: 24px;
+}
+
+/* 3-Column Layout */
+.layout-container {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+/* Left Sidebar Elements */
+.sidebar-left {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    gap: 15px;
+}
+
+.profile-pic img {
+    width: 100%;
+    background-color: #e5e3d4;
+    border-radius: 8px;
+    border: 2px solid #b5b3a3;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #e5e3d4;
+    padding: 15px;
+    box-shadow: inset 2px 2px 0px #fff, inset -2px -2px 0px #b5b3a3;
+}
+
+.nav-btn {
+    text-decoration: none;
+    color: #1a1a1a;
+    background-color: #e5e3d4;
+    padding: 5px 10px;
+    text-align: center;
+    font-size: 22px;
+    border: 2px solid #b5b3a3;
+    box-shadow: inset 2px 2px 0px #fff;
+    cursor: pointer;
+}
+
+.nav-btn:hover {
+    background-color: #d1cfbc;
+}
+
+.system-status {
+    background-color: #e5e3d4;
+    padding: 10px;
+    font-size: 16px;
+    box-shadow: inset 2px 2px 0px #fff, inset -2px -2px 0px #b5b3a3;
+}
+
+/* Middle Content Stackable Sections */
+.middle-content {
+    flex: 1; /* Takes up remaining middle space */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between stacked sections */
+}
+
+.content-block {
+    background-color: #e5e3d4;
+    padding: 20px;
+    box-shadow: inset 2px 2px 0px #fff, inset -2px -2px 0px #b5b3a3;
+}
+
+.content-block h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.content-block p, .content-block ul {
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.content-block ul {
+    list-style-type: "- ";
+    padding-left: 20px;
+}
+
+.chibi-art {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.chibi-art img {
+    max-width: 200px;
+}
+
+/* Right Sidebar 3D Container */
+.sidebar-right {
+    width: 300px;
+    height: 500px;
+    background-color: #e5e3d4;
+    box-shadow: inset 2px 2px 0px #fff, inset -2px -2px 0px #b5b3a3;
+    overflow: hidden;
+}
+
+#3d-container {
+    width: 100%;
+    height: 100%;
+}
