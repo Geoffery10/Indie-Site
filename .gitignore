@@ -9,21 +9,6 @@
 *.prproj
 *.aep
 
-### Web ###
-*.asp
-*.cer
-*.csr
-*.css
-*.htm
-*.html
-*.js
-*.jsp
-*.php
-*.rss
-*.wasm
-*.wat
-*.xhtml
-
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
