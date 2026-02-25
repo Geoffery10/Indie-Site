@@ -40,18 +40,23 @@
                 </div>
 
                 <nav class="navigation panel">
-                    <a href="#" class="nav-btn">Home</a>
-                    <a href="#" class="nav-btn">About</a>
+                    <a href="/index.html" class="nav-btn">Home</a>
+                    <!-- <a href="#" class="nav-btn">About</a>
                     <a href="#" class="nav-btn">Art</a>
                     <a href="#" class="nav-btn">Projects</a>
                     <a href="#" class="nav-btn">Blog</a>
-                    <a href="#" class="nav-btn">Chat</a>
+                    <a href="#" class="nav-btn">Chat</a> -->
                 </nav>
 
                 <div class="system-status panel">
                     <p>Systems status: OK</p>
                     <br>
-                    <p>[ OK ] geoffery10.com<br>[ OK ] minecraft</p>
+                    <!-- Make sure data-monitor matches the EXACT name of the monitor in Uptime Kuma -->
+                    <p><span class="uk-status" data-monitor="geoffery10.com">[ ... ]</span> geoffery10.com</p>
+                    <p><span class="uk-status" data-monitor="indie.geoffery10.com">[ ... ]</span> indie.geoffery10.com
+                    </p>
+                    <p><span class="uk-status" data-monitor="indie.geoffery10.com">[ ... ]</span> Immich
+                    </p>
                 </div>
             </aside>
 
@@ -85,6 +90,7 @@
     </div>
 
     <script src="js/clock.js"></script>
+    <script src="js/status.js"></script>
 </body>
 
 </html>
