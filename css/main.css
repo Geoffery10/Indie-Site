@@ -193,3 +193,66 @@ body {
     pointer-events: none; /* Allows user to select text over the image */
     user-select: none;
 }
+
+/* Base Hamburger Button Styles (Hidden by default) */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-family: 'VT323', monospace;
+    font-size: 30px;
+    color: #1a1a1a;
+    cursor: pointer;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Allow absolute positioning inside the banner */
+.top-banner {
+    position: relative; 
+}
+
+/* Activate Mobile Layout for screens 768px and smaller */
+@media (max-width: 768px) {
+    /* Show the hamburger icon */
+    .hamburger {
+        display: block; 
+    }
+
+    /* Change padding to fit mobile screens better */
+    .page-wrapper {
+        padding: 15px; 
+    }
+
+    /* Stack layout vertically instead of side-by-side */
+    .layout-container {
+        flex-direction: column; 
+    }
+
+    /* Hide the left sidebar by default and make it full width */
+    .sidebar-left {
+        display: none; 
+        width: 100%;
+    }
+
+    /* Class added by Javascript when hamburger is clicked */
+    .sidebar-left.active {
+        display: flex; 
+    }
+
+    /* Shrink the watermark slightly so it doesn't break mobile boundaries */
+    .chibi-bg {
+        width: 280px;
+        right: -10px;
+        bottom: -10px;
+    }
+}
+
+/* Safety constraint: Force display if window is resized back to desktop */
+@media (min-width: 769px) {
+    .sidebar-left {
+        display: flex !important;
+    }
+}
