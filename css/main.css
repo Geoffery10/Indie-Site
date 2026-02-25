@@ -20,12 +20,12 @@ body {
 .fluid-bg {
     position: fixed;
     top: -10%; left: -10%;
-    width: 120%; height: 120%;
+    width: 100%; height: 120%;
     background-image: url('../assets/green_bg.webp'); 
     background-size: cover;
     background-position: center;
     z-index: -3; /* Deepest layer */
-    animation: warpEffect 15s ease-in-out infinite alternate;
+    animation: warpEffect 10s ease-in-out infinite alternate;
 }
 
 @keyframes warpEffect {
