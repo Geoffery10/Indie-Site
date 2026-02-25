@@ -8,7 +8,7 @@
 body {
     background-color: #e0dfc2;
     font-family: 'VT323', monospace;
-    font-size: 20px;
+    font-size: 22px; /* Adjusted to match your image */
     color: #1a1a1a;
     display: flex;
     justify-content: center;
@@ -41,52 +41,52 @@ body {
     width: 100vw; height: 100vh;
     display: flex;
     z-index: -2;
-    pointer-events: none; /* Lets you click through the empty spaces */
+    pointer-events: none;
 }
 
-/* Matches the window height, dynamic width based on image */
 .bg-img-center {
     height: 100vh;
     width: auto;
     display: block;
 }
 
-/* Fills leftover horizontal space natively if screen is wider than bg.png */
 .side-fill {
     flex: 1;
     background-color: #e0dfc2;
 }
 
-/* Layer 3: Layout constraints */
+/* Layer 3: Main Page Wrapper */
 .page-wrapper {
     width: 100%;
-    max-width: 1100px;
-    padding: 20px;
+    max-width: 1000px; /* Narrowed slightly since 3D column is gone */
+    padding: 30px;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    z-index: 1; /* Sits above the backgrounds */
+    z-index: 1; 
 }
 
-/* Shared Retro Panel Styles */
-.retro-panel {
+/* Shared UI Panel Styling (Inner bevel + Outer drop shadow) */
+.panel {
     background-color: #e0dfc2;
-    box-shadow: inset 2px 2px 0px #ffffff, inset -2px -2px 0px #b5b3a3;
+    box-shadow: 
+        inset 1px 1px 0px #ffffff, 
+        inset -1px -1px 0px #b5b3a3,
+        5px 5px 15px rgba(0, 0, 0, 0.15); /* Drop shadow from screenshot */
 }
 
 /* Top Clock Banner */
 .top-banner {
-    background-color: #e0dfc2;
     text-align: center;
-    padding: 10px;
-    box-shadow: inset 2px 2px 0px #ffffff, inset -2px -2px 0px #b5b3a3;
-    font-size: 24px;
+    padding: 12px;
+    font-size: 26px;
+    letter-spacing: 1px;
 }
 
-/* 3-Column Layout */
+/* Layout constraints */
 .layout-container {
     display: flex;
-    gap: 20px;
+    gap: 25px;
     align-items: flex-start;
 }
 
@@ -94,37 +94,40 @@ body {
 .sidebar-left {
     display: flex;
     flex-direction: column;
-    width: 200px;
-    gap: 15px;
+    width: 220px;
+    gap: 20px;
+}
+
+.profile-pic {
+    padding: 12px;
 }
 
 .profile-pic img {
     width: 100%;
-    background-color: #e0dfc2;
-    border-radius: 8px;
-    border: 2px solid #b5b3a3;
     display: block;
+    border-radius: 8px; /* Added slight rounding to profile pic */
 }
 
 .navigation {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    background-color: #e0dfc2;
+    gap: 12px;
     padding: 15px;
-    box-shadow: inset 2px 2px 0px #ffffff, inset -2px -2px 0px #b5b3a3;
 }
 
+/* Rounded Navigation Buttons */
 .nav-btn {
     text-decoration: none;
     color: #1a1a1a;
     background-color: #e0dfc2;
-    padding: 5px 10px;
+    padding: 6px 10px;
     text-align: center;
-    font-size: 22px;
-    box-shadow: inset 2px 2px 0px #ffffff, inset -2px -2px 0px #b5b3a3;
+    font-size: 24px;
+    border-radius: 8px; /* Rounded pill shape */
+    border: 1px solid #b5b3a3;
+    box-shadow: inset 1px 1px 0px #ffffff;
     cursor: pointer;
-    border: 1px solid transparent;
+    transition: background-color 0.1s ease;
 }
 
 .nav-btn:hover {
@@ -132,61 +135,61 @@ body {
 }
 
 .system-status {
-    background-color: #e0dfc2;
-    padding: 10px;
+    padding: 15px;
     font-size: 16px;
-    box-shadow: inset 2px 2px 0px #ffffff, inset -2px -2px 0px #b5b3a3;
+    line-height: 1.2;
 }
 
 /* Middle Content Stackable Sections */
 .middle-content {
     flex: 1; 
-    display: flex;
-    flex-direction: column;
-    gap: 20px; 
+    padding: 30px;
+    position: relative; /* Crucial for absolute positioning the watermark */
+    overflow: hidden; /* Keeps the watermark inside the borders */
+    min-height: 520px; /* Ensures enough height for the watermark */
 }
 
-.content-block {
-    background-color: #e0dfc2;
-    padding: 20px;
-    box-shadow: inset 2px 2px 0px #ffffff, inset -2px -2px 0px #b5b3a3;
+/* Ensures text sits ABOVE the watermark */
+.middle-content > * {
+    position: relative;
+    z-index: 1;
 }
 
-.content-block h1 {
-    font-size: 28px;
-    margin-bottom: 15px;
+.middle-content h1 {
+    font-size: 32px;
+    font-weight: normal;
 }
 
-.content-block p, .content-block ul {
-    margin-bottom: 15px;
+.middle-content p, .middle-content ul {
     line-height: 1.2;
 }
 
-.content-block ul {
+.middle-content ul {
     list-style-type: "- ";
     padding-left: 20px;
 }
 
-.chibi-art {
-    text-align: center;
-    margin-top: 20px;
+/* Watermark Image Effect */
+.watermark-chibi {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 380px;
+    opacity: 0.15; /* Fades the image drastically */
+    filter: grayscale(100%); /* Removes color to make it look like a sketch */
+    z-index: 0;
+    pointer-events: none; /* Allows user to select text over the image */
+    user-select: none;
 }
 
-.chibi-art img {
-    max-width: 200px;
-}
-
-/* Right Sidebar 3D Container */
-.sidebar-right {
-    width: 300px;
-    height: 500px;
-    background-color: #e0dfc2;
-    box-shadow: inset 2px 2px 0px #ffffff, inset -2px -2px 0px #b5b3a3;
-    overflow: hidden;
-    position: relative;
-}
-
-#3d-container {
-    width: 100%;
-    height: 100%;
+.chibi-bg {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 380px;
+    opacity: 0.8; /* Fades the image drastically */
+    filter: grayscale(100%); /* Removes color to make it look like a sketch */
+    z-index: 0;
+    pointer-events: none; /* Allows user to select text over the image */
+    user-select: none;
 }

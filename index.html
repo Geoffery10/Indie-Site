@@ -12,33 +12,34 @@
 
 <body>
 
-    <!-- 1. The Green Fluid Background (At the very back) -->
+    <!-- Layer 1: The Green Fluid Background -->
     <div class="fluid-bg"></div>
 
-    <!-- 2. The Beige Masking Frame (Sits on top of the fluid, frames the layout) -->
+    <!-- Layer 2: The Beige Masking Frame -->
     <div class="bg-frame-container">
         <div class="side-fill"></div>
         <img src="assets/bg.png" class="bg-img-center" alt="">
         <div class="side-fill"></div>
     </div>
 
-    <!-- 3. The Main Webpage Content -->
+    <!-- Layer 3: Main Layout Content -->
     <div class="page-wrapper">
+
         <!-- Top Clock Banner -->
-        <header class="top-banner">
+        <header class="top-banner panel">
             <span id="clock">10:00 AM</span>
         </header>
 
-        <!-- Main Layout Container -->
+        <!-- Main Layout Container (2 Columns) -->
         <div class="layout-container">
 
             <!-- LEFT SIDEBAR -->
             <aside class="sidebar-left">
-                <div class="profile-pic">
+                <div class="profile-pic panel">
                     <img src="assets/profile_picture.gif" alt="Profile Picture">
                 </div>
 
-                <nav class="navigation">
+                <nav class="navigation panel">
                     <a href="#" class="nav-btn">Home</a>
                     <a href="#" class="nav-btn">About</a>
                     <a href="#" class="nav-btn">Art</a>
@@ -47,58 +48,43 @@
                     <a href="#" class="nav-btn">Chat</a>
                 </nav>
 
-                <div class="system-status">
+                <div class="system-status panel">
                     <p>Systems status: OK</p>
+                    <br>
                     <p>[ OK ] geoffery10.com<br>[ OK ] minecraft</p>
                 </div>
             </aside>
 
-            <!-- MIDDLE BODY (Stackable Sections) -->
-            <main class="middle-content">
-                <section class="content-block">
-                    <h1>Welcome to indie.geoffery10.com</h1>
-                    <p>This is my website and blog for the indie web. You will find all sorts of art and projects I've
-                        been working on.</p>
+            <!-- MAIN CONTENT (Middle Body) -->
+            <main class="middle-content panel">
+                <h1>Welcome to indie.geoffery10.com</h1>
+                <br>
+                <p>This is my website and blog for the indie web. You will<br>find all sorts of art and projects Ive
+                    been working on.</p>
+                <br>
+                <p>Here is a bit about myself:</p>
+                <ul>
+                    <li>27 y/o</li>
+                    <li>Married</li>
+                    <li>Jesus is my Lord</li>
+                </ul>
+                <br>
+                <p>Hobbies:</p>
+                <ul>
+                    <li>Computer Science</li>
+                    <li>Multimedia Artist</li>
+                    <li>Photographer</li>
+                    <li>Games & VR</li>
+                </ul>
 
-                    <p><strong>Here is a bit about myself:</strong></p>
-                    <ul>
-                        <li>27 y/o</li>
-                        <li>Married</li>
-                        <li>Jesus is my Lord</li>
-                    </ul>
-
-                    <p><strong>Hobbies:</strong></p>
-                    <ul>
-                        <li>Computer Science</li>
-                        <li>Multimedia Artist</li>
-                        <li>Photographer</li>
-                        <li>Games & VR</li>
-                    </ul>
-
-                    <div class="chibi-art">
-                        <img src="assets/sakura_this.png" alt="Chibi Character">
-                    </div>
-                </section>
+                <!-- Faded Watermark Image -->
+                <img src="assets/sakura_this_bg.png" class="chibi-bg" alt="Chibi Character">
             </main>
-
-            <!-- RIGHT SIDEBAR (3D Model) -->
-            <aside class="sidebar-right">
-                <div id="3d-container"></div>
-            </aside>
 
         </div>
     </div>
 
     <script src="js/clock.js"></script>
-    <script type="importmap">
-        {
-            "imports": {
-                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
-            }
-        }
-    </script>
-    <script type="module" src="js/model.js"></script>
 </body>
 
 </html>
