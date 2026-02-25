@@ -6,8 +6,8 @@
 }
 
 body {
-    background-color: #e5e3d4; /* Base beige color */
-    font-family: 'VT323', monospace; /* Retro pixel font */
+    background-color: #e0dfc2;
+    font-family: 'VT323', monospace;
     font-size: 20px;
     color: #1a1a1a;
     display: flex;
@@ -16,17 +16,15 @@ body {
     overflow-x: hidden;
 }
 
-/* Fluid Warping Background Effect */
+/* Layer 1: Fluid Warping Background Effect */
 .fluid-bg {
     position: fixed;
     top: -10%; left: -10%;
     width: 120%; height: 120%;
-    /* Replace with your actual green fluid background image */
     background-image: url('../assets/green_bg.webp'); 
     background-size: cover;
     background-position: center;
-    z-index: -1; /* Puts it behind everything */
-    /* Slow warp animation */
+    z-index: -3; /* Deepest layer */
     animation: warpEffect 15s ease-in-out infinite alternate;
 }
 
@@ -36,7 +34,30 @@ body {
     100% { transform: scale(1.1) translate(-10px, -20px) skew(-1deg); }
 }
 
-/* Layout constraints */
+/* Layer 2: Beige Background Frame Wrapper */
+.bg-frame-container {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    display: flex;
+    z-index: -2;
+    pointer-events: none; /* Lets you click through the empty spaces */
+}
+
+/* Matches the window height, dynamic width based on image */
+.bg-img-center {
+    height: 100vh;
+    width: auto;
+    display: block;
+}
+
+/* Fills leftover horizontal space natively if screen is wider than bg.png */
+.side-fill {
+    flex: 1;
+    background-color: #e0dfc2;
+}
+
+/* Layer 3: Layout constraints */
 .page-wrapper {
     width: 100%;
     max-width: 1100px;
@@ -44,15 +65,21 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    z-index: 1; /* Sits above the backgrounds */
+}
+
+/* Shared Retro Panel Styles */
+.retro-panel {
+    background-color: #e0dfc2;
+    box-shadow: inset 2px 2px 0px #ffffff, inset -2px -2px 0px #b5b3a3;
 }
 
 /* Top Clock Banner */
 .top-banner {
-    background-color: #e5e3d4;
+    background-color: #e0dfc2;
     text-align: center;
     padding: 10px;
-    border: 2px solid transparent; /* Allows room for drop shadows if desired */
-    box-shadow: inset 2px 2px 0px #fff, inset -2px -2px 0px #b5b3a3;
+    box-shadow: inset 2px 2px 0px #ffffff, inset -2px -2px 0px #b5b3a3;
     font-size: 24px;
 }
 
@@ -63,7 +90,7 @@ body {
     align-items: flex-start;
 }
 
-/* Left Sidebar Elements */
+/* Left Sidebar */
 .sidebar-left {
     display: flex;
     flex-direction: column;
@@ -73,30 +100,31 @@ body {
 
 .profile-pic img {
     width: 100%;
-    background-color: #e5e3d4;
+    background-color: #e0dfc2;
     border-radius: 8px;
     border: 2px solid #b5b3a3;
+    display: block;
 }
 
 .navigation {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background-color: #e5e3d4;
+    background-color: #e0dfc2;
     padding: 15px;
-    box-shadow: inset 2px 2px 0px #fff, inset -2px -2px 0px #b5b3a3;
+    box-shadow: inset 2px 2px 0px #ffffff, inset -2px -2px 0px #b5b3a3;
 }
 
 .nav-btn {
     text-decoration: none;
     color: #1a1a1a;
-    background-color: #e5e3d4;
+    background-color: #e0dfc2;
     padding: 5px 10px;
     text-align: center;
     font-size: 22px;
-    border: 2px solid #b5b3a3;
-    box-shadow: inset 2px 2px 0px #fff;
+    box-shadow: inset 2px 2px 0px #ffffff, inset -2px -2px 0px #b5b3a3;
     cursor: pointer;
+    border: 1px solid transparent;
 }
 
 .nav-btn:hover {
@@ -104,24 +132,24 @@ body {
 }
 
 .system-status {
-    background-color: #e5e3d4;
+    background-color: #e0dfc2;
     padding: 10px;
     font-size: 16px;
-    box-shadow: inset 2px 2px 0px #fff, inset -2px -2px 0px #b5b3a3;
+    box-shadow: inset 2px 2px 0px #ffffff, inset -2px -2px 0px #b5b3a3;
 }
 
 /* Middle Content Stackable Sections */
 .middle-content {
-    flex: 1; /* Takes up remaining middle space */
+    flex: 1; 
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Space between stacked sections */
+    gap: 20px; 
 }
 
 .content-block {
-    background-color: #e5e3d4;
+    background-color: #e0dfc2;
     padding: 20px;
-    box-shadow: inset 2px 2px 0px #fff, inset -2px -2px 0px #b5b3a3;
+    box-shadow: inset 2px 2px 0px #ffffff, inset -2px -2px 0px #b5b3a3;
 }
 
 .content-block h1 {
@@ -152,9 +180,10 @@ body {
 .sidebar-right {
     width: 300px;
     height: 500px;
-    background-color: #e5e3d4;
-    box-shadow: inset 2px 2px 0px #fff, inset -2px -2px 0px #b5b3a3;
+    background-color: #e0dfc2;
+    box-shadow: inset 2px 2px 0px #ffffff, inset -2px -2px 0px #b5b3a3;
     overflow: hidden;
+    position: relative;
 }
 
 #3d-container {
