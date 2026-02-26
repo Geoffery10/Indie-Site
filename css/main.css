@@ -99,6 +99,8 @@ body {
     flex-direction: column;
     width: 220px;
     gap: 20px;
+    position: sticky;
+    top: 60px;
 }
 
 .profile-pic {
