@@ -60,23 +60,7 @@
                 <!-- Navigation placeholder -->
                 <div id="navigation-placeholder"></div>
 
-                <div class="system-status panel">
-                    <p>Systems status:</p>
-                    <!-- Make sure data-monitor matches the EXACT name of the monitor in Uptime Kuma -->
-                    <p><span class="uk-status" data-monitor="geoffery10.com">[ ... ]</span> geoffery10.com</p>
-                    <p><span class="uk-status" data-monitor="indie.geoffery10.com">[ ... ]</span> indie.geoffery10.com
-                    </p>
-                    <p><span class="uk-status" data-monitor="Immich">[ ... ]</span> Immich
-                    </p>
-                    <br>
-                    <p>Server status:</p>
-                    <p><span class="uk-status" data-monitor="Proxmox pve1 Server">[ ... ]</span> Proxmox pve1
-                    </p>
-                    <p><span class="uk-status" data-monitor="Proxmox pve2 Server">[ ... ]</span> Proxmox pve2
-                    </p>
-                    <p><span class="uk-status" data-monitor="Hal-Server">[ ... ]</span> Hal Server
-                    </p>
-                </div>
+                <div id="system-status-placeholder"></div>
             </aside>
 
             <!-- MAIN CONTENT (Middle Body) -->
@@ -120,6 +104,7 @@
     </div>
 
     <script src="/js/navigation.js"></script>
+    <script src="/js/status-panel.js"></script>
     <script src="/js/clock.js"></script>
     <script src="/js/status.js"></script>
     <script src="/js/menu.js"></script>
