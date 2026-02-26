@@ -12,18 +12,20 @@
 
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:title" content="indie.geoffery10.com">
-    <meta property="og:description" content="Welcome to my indie web site! Explore my art, projects, and more.">
+    <meta property="og:description"
+        content="Stoat Sync bridges Discord and Stoat, synchronizing messages, edits, and deletions in real-time...">
     <meta property="og:url" content="https://indie.geoffery10.com">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://indie.geoffery10.com/assets/profile_picture.gif">
+    <meta property="og:image" content="/projects/2026/Stoat-Sync/Stoat-Sync-Icon.webp">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
 
     <!-- Twitter Card Meta Tags (optional but recommended) -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="indie.geoffery10.com">
-    <meta name="twitter:description" content="Welcome to my indie web site! Explore my art, projects, and more.">
-    <meta name="twitter:image" content="https://indie.geoffery10.com/assets/profile_picture.gif">
+    <meta name="twitter:description"
+        content="Stoat Sync bridges Discord and Stoat, synchronizing messages, edits, and deletions in real-time...">
+    <meta name="twitter:image" content="/projects/2026/Stoat-Sync/Stoat-Sync-Icon.webp">
 </head>
 
 <body>
@@ -87,45 +89,44 @@
 
             <!-- MAIN CONTENT (Middle Body) -->
             <main class="middle-content panel">
-                <h1>Here are some of my projects</h1>
-                <br>
-
-                <!-- Project List Container -->
-                <div class="project-list">
-                    <a href="/projects/2026/Stoat-Sync/project.html" class="project-card panel">
-                        <img src="/projects/2026/Stoat-Sync/Stoat-Sync-Icon.webp" class="project-thumb"
-                            alt="Stoat Sync Thumbnail">
-                        <div class="project-info">
-                            <h2>Stoat Sync</h2>
-                            <p>Stoat Sync bridges Discord and Stoat, synchronizing messages, edits, and deletions in
-                                real-time...</p>
-                            <p class="project-info timestamp">2/26/2026</p>
-                        </div>
-                    </a>
-                    <a href="/projects/2026/Discord-to-Stoat/project.html" class="project-card panel">
-                        <img src="https://avatars.githubusercontent.com/u/234249415?s=200&v=4" class="project-thumb"
-                            alt="Stoat Chat Thumbnail">
-                        <div class="project-info">
-                            <h2>Discord to Stoat Migration</h2>
-                            <p>With all the recent drama around Discord's age verification I started building out my own
-                                self-hosted Stoat instance...
-                            </p>
-                            <p class="project-info timestamp">2/25/2026</p>
-                        </div>
-                    </a>
-                    <a href="/projects/2026/Sakura-v3-Hair/project.html" class="project-card panel">
-                        <img src="/projects/2026/Sakura-v3-Hair/Sakura-Hair-Icon.webp" class="project-thumb"
-                            alt="Sakura 3.0 Hair">
-                        <div class="project-info">
-                            <h2>Sakura 3.0 Hair</h2>
-                            <p>I decided to completely remake my Sakura model's hair from scratch with a completely new
-                                mesh designed to more closely match my illustrations of the character...</p>
-                            <p class="project-info timestamp">1/21/2026</p>
-                        </div>
-                    </a>
-
+                <div class="project-write-up">
+                    <img src="/projects/2026/Stoat-Sync/Stoat-Sync-Icon.webp" class="project-thumb"
+                        alt="Stoat Sync Icon">
+                    <h1>Stoat Sync</h1>
+                    <br>
+                    <p>Since I started the move to Stoat which you can read about <a
+                            href="/projects/2026/Discord-to-Stoat/project.html">here</a> there was one important thing I
+                        was missing. The backs from Discord to Stoat got the history of each channel in place but any
+                        new messages would have to be backed up again and manually synced. This would not be sustainable
+                        long-term. That's why I knew I needed to build Stoat Sync.</p>
+                    <img src="/projects/2026/Stoat-Sync/stoat-sync-profile.png" alt="Stoat Sync Profile">
+                    <p> Stoat Sync is a real-time synchronization bridge between Discord and Stoat. It monitors
+                        specified
+                        Discord channels and mirrors all activity to corresponding Stoat channels, including new
+                        messages, edits, and deletions. This insures that my Stoat instance remains a perfect mirror of
+                        my Discord and vice versa.</p>
+                    </p>
+                    <img src="/projects/2026/Stoat-Sync/stoat-sync-edit.webp" alt="Stoat Sync Edit">
+                    <p>The project has been a fun challenge to build and involved learning Stoats vague and mostly
+                        undocumented API. I also had to figure out how to make both a Discord and Stoat bot run
+                        simultaneously. This project also gave me a chance to brush up on my TDD skills although due to
+                        the pace of development TDD was more of an "after the fact" instead of the preferred "test
+                        first" approach.
+                    </p>
+                    <br>
+                    <p>
+                        Overall I'm really happy with how Stoat Sync turned out. It still has some bugs and edge cases
+                        like lack of emoji translation, lack of embed support, and issues where Discord has more
+                        attachments than Stoat's max of 5. I hope to continue polishing this project more and I hope
+                        others may find it as useful as I have.
+                    </p>
+                    <br>
+                    <img alt="GitHub Actions Workflow Status"
+                        src="https://img.shields.io/github/actions/workflow/status/Geoffery10/Stoat-Sync/tests.yml?label=tests"><img
+                        alt="Coveralls" src="https://img.shields.io/coverallsCoverage/github/Geoffery10/Stoat-Sync">
+                    <a href="https://github.com/Geoffery10/Stoat-Sync" target="_blank" class="project-card panel">View
+                        Stoat Sync on GitHub</a>
                 </div>
-
                 <!-- Faded Watermark Image -->
                 <img src="/assets/sakura_this_bg.png" class="chibi-bg" alt="Chibi Character">
             </main>
