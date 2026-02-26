@@ -321,6 +321,12 @@ body {
     justify-content: center; /* Vertically centers text next to the image */
 }
 
+.project-info .timestamp {
+    font-weight: normal;
+    color: #777569;
+    text-align: right;
+}
+
 .project-info h2 {
     font-size: 28px;
     margin-bottom: 8px;
