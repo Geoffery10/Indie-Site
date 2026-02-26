@@ -34,6 +34,22 @@ body {
     100% { transform: scale(1.1) translate(-10px, -20px) skew(-1deg); }
 }
 
+h1 {
+    font-weight: normal;
+}
+
+h2 {
+    font-weight: normal;
+}
+
+h3 {
+    font-weight: normal;
+}
+
+h4 {
+    font-weight: normal;
+}
+
 /* Layer 2: Beige Background Frame Wrapper */
 .bg-frame-container {
     position: fixed;
@@ -172,6 +188,31 @@ body {
 .middle-content ul {
     list-style-type: "- ";
     padding-left: 20px;
+}
+
+
+hr {
+    border: none;
+    height: 2px;
+    background-color: #000;
+    margin: 20px 0;
+}
+
+.verse-container-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.vertical-line {
+    height: 100px;
+    width: 2px;
+    background-color: #000;
+    margin-right: 15px;
+}
+
+#verse-container {
+    flex: 1;
 }
 
 /* Watermark Image Effect */
