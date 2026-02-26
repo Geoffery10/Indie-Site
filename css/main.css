@@ -261,6 +261,14 @@ body {
         height: auto;
         aspect-ratio: 16/9; /* Makes it a nice widescreen thumbnail on mobile */
     }
+
+    .project-write-up img {
+    max-width: 256px;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 }
 
 /* Safety constraint: Force display if window is resized back to desktop */
@@ -321,4 +329,14 @@ body {
 .project-info p {
     font-size: 20px;
     line-height: 1.2;
+}
+
+.project-write-up img {
+    max-width: 256px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #b5b3a3;
+    background-color: #e0dfc2;
+    flex-shrink: 0;
 }
