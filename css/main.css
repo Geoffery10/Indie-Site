@@ -81,6 +81,9 @@ body {
     padding: 12px;
     font-size: 26px;
     letter-spacing: 1px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 /* Layout constraints */
@@ -209,10 +212,6 @@ body {
     transform: translateY(-50%);
 }
 
-/* Allow absolute positioning inside the banner */
-.top-banner {
-    position: relative; 
-}
 
 /* Activate Mobile Layout for screens 768px and smaller */
 @media (max-width: 768px) {
@@ -233,8 +232,11 @@ body {
 
     /* Hide the left sidebar by default and make it full width */
     .sidebar-left {
-        display: none; 
+        display: none;
         width: 100%;
+        position: sticky;
+        top: 60px;
+        z-index: 9;
     }
 
     /* Class added by Javascript when hamburger is clicked */
