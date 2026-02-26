@@ -350,4 +350,6 @@ body {
     border: 2px solid #b5b3a3;
     background-color: #e0dfc2;
     flex-shrink: 0;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
