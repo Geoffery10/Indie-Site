@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   window.location.hostname === '127.0.0.1' ||
                   window.location.hostname.startsWith('192.168') ?
                   'http://192.168.0.122:5000/api/bible-daily-verse' :
-                  'https://api.indie.geoffery10.com/api/bible-daily-verse';
+                  'https://indie-api.geoffery10.com/api/bible-daily-verse';
 
     fetch(apiUrl)
         .then(response => {
