@@ -263,12 +263,13 @@ body {
     }
 
     .project-write-up img {
-    max-width: 256px;
-    height: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
+        width: 100%;
+        max-width: 250px;
+        height: auto;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 /* Safety constraint: Force display if window is resized back to desktop */
