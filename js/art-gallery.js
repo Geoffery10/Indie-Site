@@ -10,6 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
     let isLoading = false;
     let hasMore = true;
 
+    let lastYear = null;
+    let lastMonth = null;
+
     const baseUrl = window.location.hostname === 'localhost' ||
                     window.location.hostname === '127.0.0.1' ||
                     window.location.hostname.startsWith('192.168') ?
@@ -30,11 +33,35 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             data.forEach(item => {
+                // --- NEW DATE PARSING LOGIC ---
+                const itemDate = new Date(item.date);
+                const currentYear = itemDate.getFullYear();
+                const currentMonth = itemDate.toLocaleString('default', { month: 'long' });
+
+                // Check for Year change
+                if (currentYear !== lastYear) {
+                    const yearHeader = document.createElement('h2');
+                    yearHeader.className = 'grid-header year-header';
+                    yearHeader.innerText = currentYear;
+                    artGrid.appendChild(yearHeader);
+                    lastYear = currentYear;
+                    lastMonth = null; // Reset month so it triggers for the new year
+                }
+
+                // Check for Month change
+                if (currentMonth !== lastMonth) {
+                    const monthHeader = document.createElement('h3');
+                    monthHeader.className = 'grid-header month-header';
+                    monthHeader.innerText = currentMonth;
+                    artGrid.appendChild(monthHeader);
+                    lastMonth = currentMonth;
+                }
+
+                // --- EXISTING ART ITEM LOGIC ---
                 const artItem = document.createElement('div');
                 artItem.className = 'art-item';
                 
                 const img = document.createElement('img');
-                // Ensure the URL is correctly constructed
                 const imgPath = item.imageUrl.startsWith('/') ? item.imageUrl : `/${item.imageUrl}`;
                 img.src = `${baseUrl}${imgPath}`;
                 img.alt = "Indie Art";
@@ -51,29 +78,13 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             page++;
-            
-            // --- NEW LOGIC: CHECK IF WE NEED MORE TO FILL THE SCREEN ---
-            // We wait a tiny bit for the browser to render the new images
-            setTimeout(() => {
-                checkIfMoreNeeded();
-            }, 100);
+            setTimeout(() => { checkIfMoreNeeded(); }, 100);
 
         } catch (error) {
             console.error("Error loading art:", error);
             artStatus.innerHTML = "Error loading gallery.";
         } finally {
             isLoading = false;
-        }
-    }
-
-    // New helper function: If the "Loading" text is still visible, fetch the next page immediately
-    function checkIfMoreNeeded() {
-        if (!hasMore || isLoading) return;
-
-        const rect = artStatus.getBoundingClientRect();
-        // If the top of the 'art-status' div is above the bottom of the screen
-        if (rect.top < window.innerHeight) {
-            fetchArt();
         }
     }
 
