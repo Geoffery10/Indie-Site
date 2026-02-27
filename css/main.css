@@ -394,3 +394,78 @@ hr {
     margin-top: 15px;
     margin-bottom: 15px;
 }
+
+/* Art Grid Layout */
+.art-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 wide */
+    gap: 15px;
+    margin-top: 20px;
+    z-index: 2;
+}
+
+/* Square Art Item */
+.art-item {
+    aspect-ratio: 1 / 1; /* Force square */
+    overflow: hidden;
+    border-radius: 8px;
+    border: 2px solid #b5b3a3;
+    background-color: #d1cfbc;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.art-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Fill the square without stretching */
+    display: block;
+}
+
+/* Hover Effect */
+.art-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 10;
+}
+
+/* Status / Footer text */
+.art-status {
+    text-align: center;
+    padding: 40px 0;
+    font-size: 24px;
+}
+
+/* Lightbox Modal Styles */
+.art-modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: #e0dfc2;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px; right: 35px;
+    color: #fff;
+    font-size: 60px;
+    cursor: pointer;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+    .art-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 wide on small phones */
+    }
+}
