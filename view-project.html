@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading Project...</title>
+    <!-- Same CSS as your main site -->
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+    <style>
+        /* Extra styles for the Markdown content */
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #b5b3a3;
+            border-radius: 8px;
+            margin: 20px 0;
+            display: block;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            line-height: 1.4;
+            font-size: 24px;
+        }
+
+        .article-content a {
+            color: #000;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fluid-bg"></div>
+    <div class="bg-frame-container">
+        <div class="side-fill"></div>
+        <img src="/assets/bg.png" class="bg-img-center" alt="">
+        <div class="side-fill"></div>
+    </div>
+
+    <div class="page-wrapper">
+        <header class="top-banner panel">
+            <button id="hamburger-btn" class="hamburger">☰</button>
+            <span id="clock">10:00 AM</span>
+        </header>
+
+        <div class="layout-container">
+            <aside class="sidebar-left">
+                <div class="profile-pic panel">
+                    <img src="/assets/profile_picture.gif" alt="Profile Picture">
+                </div>
+                <div id="navigation-placeholder"></div>
+                <div id="system-status-placeholder"></div>
+            </aside>
+
+            <main class="middle-content panel">
+                <!-- Content gets injected here -->
+                <h1 id="article-title">Loading...</h1>
+                <p id="article-date" class="timestamp"></p>
+                <hr>
+
+                <div id="article-content" class="project-write-up">
+                    <!-- Markdown HTML goes here -->
+                </div>
+
+                <br>
+                <a href="/projects.html" class="nav-btn" style="font-size: 20px;">&larr; Back to Projects</a>
+
+                <img src="/assets/sakura_this_bg.png" class="chibi-bg" alt="Chibi Character">
+            </main>
+        </div>
+    </div>
+
+    <script src="/js/navigation.js"></script>
+    <script src="/js/status-panel.js"></script>
+    <script src="/js/clock.js"></script>
+    <script src="/js/status.js"></script>
+    <script src="/js/menu.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function () {
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id');
+
+            const baseUrl = window.location.hostname === 'localhost' ||
+                window.location.hostname === '127.0.0.1' ||
+                window.location.hostname.startsWith('192.168') ?
+                'http://192.168.0.122:5000' :
+                'https://indie-api.geoffery10.com';
+
+            if (!id) {
+                document.getElementById('article-title').textContent = "Project Not Found";
+                document.getElementById('article-content').innerHTML = "<p>No project ID specified.</p>";
+                return;
+            }
+
+            try {
+                // Call the API with the ID
+                const response = await fetch(`${baseUrl}/api/projects/article?id=${encodeURIComponent(id)}`);
+
+                if (!response.ok) throw new Error("Not Found");
+
+                const data = await response.json();
+
+                // Update Page Title
+                document.title = data.title + " - indie.geoffery10.com";
+
+                // Inject Content
+                document.getElementById('article-title').textContent = data.title;
+                document.getElementById('article-date').textContent = new Date(data.date).toLocaleDateString('en-US');
+
+                // Rewritten HTML content from API (with images linked to API assets)
+                // We need to fix the image sources if they are relative to the API root
+                // The API returns src="/api/projects/asset/...", so we just prepend baseUrl
+                let content = data.content;
+
+                // Simple regex to prepend API Base URL to the asset paths
+                // This handles <img src="/api/...">
+                content = content.replace(/src="\/api\//g, `src="${baseUrl}/api/`);
+
+                // This handles ![Alt](/api/...) if Markdig output raw paths
+                content = content.replace(/\(\/api\//g, `(${baseUrl}/api/`);
+
+                document.getElementById('article-content').innerHTML = content;
+
+            } catch (error) {
+                console.error(error);
+                document.getElementById('article-title').textContent = "Error";
+                document.getElementById('article-content').innerHTML = "<p>Could not load project. It may have been moved or deleted.</p>";
+            }
+        });
+    </script>
+</body>
+
+</html>
