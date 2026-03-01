@@ -294,20 +294,20 @@ hr {
         bottom: -10px;
     }
 
-    .project-card {
+    .article-card {
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
 
-    .project-thumb {
+    .article-thumb {
         width: 100%;
         max-width: 250px;
         height: auto;
         aspect-ratio: 16/9; /* Makes it a nice widescreen thumbnail on mobile */
     }
 
-    .project-write-up img {
+    .article-write-up img {
         width: 100%;
         max-width: 250px;
         height: auto;
@@ -324,7 +324,7 @@ hr {
     }
 }
 
-.project-list {
+.article-list {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -333,7 +333,7 @@ hr {
     margin-bottom: 20px; /* Gives padding so the last card doesn't hit the bottom edge */
 }
 
-.project-card {
+.article-card {
     display: flex;
     gap: 20px;
     padding: 15px;
@@ -344,12 +344,12 @@ hr {
 }
 
 /* Hover effect matching your navigation buttons */
-.project-card:hover {
+.article-card:hover {
     background-color: #d1cfbc; 
 }
 
 /* The thumbnail image */
-.project-thumb {
+.article-thumb {
     width: 100px;
     height: 100px;
     object-fit: cover;
@@ -360,36 +360,36 @@ hr {
 }
 
 /* Container for Title and Description */
-.project-info {
+.article-info {
     display: flex;
     flex-direction: column;
     justify-content: center; /* Vertically centers text next to the image */
     flex: 1;
 }
 
-.project-info .timestamp {
+.article-info .timestamp {
     font-weight: normal;
     color: #777569;
     text-align: right;
 }
 
-.project-info h2 {
+.article-info h2 {
     font-size: 28px;
     margin-bottom: 8px;
     font-weight: normal;
 }
 
-.project-info p {
+.article-info p {
     font-size: 20px;
     line-height: 1.2;
 }
 
-.project-write-up p {
+.article-write-up p {
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
-.project-write-up img {
+.article-write-up img {
     max-width: 635px;
     height: auto;
     object-fit: cover;

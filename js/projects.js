@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Loop through articles and create the HTML cards
             data.articles.forEach(article => {
                 const card = document.createElement('a');
-                card.className = 'project-card panel';
+                card.className = 'article-card panel';
                 
                 // Point to a generic viewer page, passing the Markdown ID
                 card.href = `/view-project.html?id=${encodeURIComponent(article.link)}`;
@@ -50,8 +50,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
 
                 card.innerHTML = `
-                    <img src="${thumbSrc}" class="project-thumb" alt="${article.title}">
-                    <div class="project-info">
+                    <img src="${thumbSrc}" class="article-thumb" alt="${article.title}">
+                    <div class="article-info">
                         <h2>${article.title}</h2>
                         <p>${article.description}</p>
                         <p class="timestamp">${dateStr}</p>
