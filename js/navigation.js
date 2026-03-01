@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <nav class="navigation panel">
                         <a href="/index.html" class="nav-btn">Home</a>
                         <a href="/projects.html" class="nav-btn">Projects</a>
+                        <a href="/blogs.html" class="nav-btn">Blog</a>
                     </nav>
                 `;
             });

@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const projectList = document.getElementById('project-list');
-    const projectStatus = document.getElementById('project-status');
+    const blogList = document.getElementById('blog-list');
+    const blogStatus = document.getElementById('blog-status');
 
     let page = 1;
-    const pageSize = 5; // Load 5 projects at a time
+    const pageSize = 5; // Load 5 blogs at a time
     let isLoading = false;
     let hasMore = true;
 
@@ -14,19 +14,19 @@ document.addEventListener('DOMContentLoaded', function() {
                     'http://192.168.0.122:5000' :
                     'https://indie-api.geoffery10.com';
 
-    async function fetchProjects() {
+    async function fetchBlogs() {
         if (isLoading || !hasMore) return;
         isLoading = true;
 
         try {
-            const response = await fetch(`${baseUrl}/api/projects?page=${page}&pageSize=${pageSize}`);
+            const response = await fetch(`${baseUrl}/api/blogs?page=${page}&pageSize=${pageSize}`);
             const data = await response.json();
 
             // Check if we reached the end
             if (!data.articles || data.articles.length === 0) {
                 hasMore = false;
-                projectStatus.innerHTML = ""; // Clear loading text
-                projectStatus.style.padding = "0";
+                blogStatus.innerHTML = ""; // Clear loading text
+                blogStatus.style.padding = "0";
                 return;
             }
 
@@ -36,14 +36,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 card.className = 'project-card panel';
                 
                 // Point to a generic viewer page, passing the Markdown ID
-                card.href = `/view-project.html?id=${encodeURIComponent(article.link)}`;
+                card.href = `/view-blog.html?id=${encodeURIComponent(article.link)}`;
                 
                 // Format the Date (e.g., 2/25/2026)
                 const dateObj = new Date(article.date);
                 const dateStr = dateObj.toLocaleDateString('en-US');
 
-                // Handle the thumbnail URL (API now handles rewriting, so it might be absolute or relative)
-                // If it starts with /api, prepend base url. If it's http, leave it.
+                // Handle the thumbnail URL
                 let thumbSrc = article.thumbnail;
                 if(thumbSrc.startsWith('/')) {
                     thumbSrc = `${baseUrl}${thumbSrc}`;
@@ -58,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 `;
 
-                projectList.appendChild(card);
+                blogList.appendChild(card);
             });
 
             page++;
@@ -66,15 +65,15 @@ document.addEventListener('DOMContentLoaded', function() {
             // If we got fewer items than requested, we are at the end
             if (data.articles.length < pageSize) {
                 hasMore = false;
-                projectStatus.innerHTML = "";
+                blogStatus.innerHTML = "";
             } else {
                 // Check if screen is full, if not load more immediately
                 setTimeout(checkIfMoreNeeded, 100);
             }
 
         } catch (error) {
-            console.error("Error loading projects:", error);
-            projectStatus.innerHTML = "Error loading projects.";
+            console.error("Error loading blogs:", error);
+            blogStatus.innerHTML = "Error loading blogs.";
         } finally {
             isLoading = false;
         }
@@ -82,21 +81,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function checkIfMoreNeeded() {
         if (!hasMore || isLoading) return;
-        const rect = projectStatus.getBoundingClientRect();
+        const rect = blogStatus.getBoundingClientRect();
         if (rect.top < window.innerHeight) {
-            fetchProjects();
+            fetchBlogs();
         }
     }
 
     // Infinite Scroll Observer
     const observer = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting && hasMore && !isLoading) {
-            fetchProjects();
+            fetchBlogs();
         }
     }, { rootMargin: '200px', threshold: 0.1 });
 
-    observer.observe(projectStatus);
+    observer.observe(blogStatus);
 
     // Initial Load
-    fetchProjects();
+    fetchBlogs();
 });

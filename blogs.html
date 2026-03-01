@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>indie.geoffery10.com - Blogs</title>
+    <link rel="icon" type="image/png" href="/assets/favicon.png">
+    <!-- Importing a retro pixel font -->
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="indie.geoffery10.com - Blogs">
+    <meta property="og:description" content="Welcome to my indie web site! Explore my blogs and writing.">
+    <meta property="og:url" content="https://indie.geoffery10.com/blogs.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://indie.geoffery10.com/assets/profile_picture.gif">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card Meta Tags (optional but recommended) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="indie.geoffery10.com - Blogs">
+    <meta name="twitter:description" content="Welcome to my indie web site! Explore my blogs and writing.">
+    <meta name="twitter:image" content="https://indie.geoffery10.com/assets/profile_picture.gif">
+</head>
+
+<body>
+
+    <!-- Layer 1: The Green Fluid Background -->
+    <div class="fluid-bg"></div>
+
+    <!-- Layer 2: The Beige Masking Frame -->
+    <div class="bg-frame-container">
+        <div class="side-fill"></div>
+        <img src="/assets/bg.png" class="bg-img-center" alt="">
+        <div class="side-fill"></div>
+    </div>
+
+    <!-- Layer 3: Main Layout Content -->
+    <div class="page-wrapper">
+
+        <!-- Top Clock Banner -->
+        <header class="top-banner panel">
+            <!-- NEW: Hamburger Button (Hidden on Desktop) -->
+            <button id="hamburger-btn" class="hamburger">☰</button>
+            <span id="clock">10:00 AM</span>
+        </header>
+
+        <!-- Main Layout Container (2 Columns) -->
+        <div class="layout-container">
+
+            <!-- LEFT SIDEBAR -->
+            <aside class="sidebar-left">
+                <div class="profile-pic panel">
+                    <img src="/assets/profile_picture.gif" alt="Profile Picture">
+                </div>
+
+                <!-- Navigation placeholder -->
+                <div id="navigation-placeholder"></div>
+
+                <div id="system-status-placeholder"></div>
+            </aside>
+
+            <!-- MAIN CONTENT (Middle Body) -->
+            <main class="middle-content panel">
+                <h1>Here are some of my blogs</h1>
+                <br>
+
+                <!-- Dynamic Blog List Container -->
+                <div id="blog-list" class="project-list">
+                    <!-- Blogs will be injected here by JS -->
+                </div>
+
+                <!-- Loading Status -->
+                <div id="blog-status" class="art-status">
+                    Loading blogs...
+                </div>
+
+
+                <!-- Faded Watermark Image -->
+                <img src="/assets/sakura_this_bg.png" class="chibi-bg" alt="Chibi Character">
+            </main>
+
+        </div>
+    </div>
+
+    <script src="/js/navigation.js"></script>
+    <script src="/js/status-panel.js"></script>
+    <script src="/js/clock.js"></script>
+    <script src="/js/blogs.js"></script>
+    <script src="/js/status.js"></script>
+    <script src="/js/menu.js"></script>
+</body>
+
+</html>

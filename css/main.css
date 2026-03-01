@@ -364,6 +364,7 @@ hr {
     display: flex;
     flex-direction: column;
     justify-content: center; /* Vertically centers text next to the image */
+    flex: 1;
 }
 
 .project-info .timestamp {
