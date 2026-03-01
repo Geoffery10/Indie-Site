@@ -4,8 +4,11 @@ Welcome to the repository for [indie.geoffery10.com](https://indie.geoffery10.co
 
 ## Status
 
+Website badges:
 ![Status Website](https://up.geoffery10.com/api/badge/47/status?upColor=%23008e45&downColor=%23c6c49f&pendingColor=%23a2e029)
 ![Uptime Website](https://up.geoffery10.com/api/badge/47/uptime)
+
+API badges:
 ![Status API](https://up.geoffery10.com/api/badge/49/status?upColor=%23008e45&downColor=%23c6c49f&pendingColor=%23a2e029)
 ![Uptime API](https://up.geoffery10.com/api/badge/49/uptime)
 
