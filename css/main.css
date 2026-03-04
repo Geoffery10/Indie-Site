@@ -348,6 +348,32 @@ hr {
     background-color: #d1cfbc; 
 }
 
+/* RSS Subscribe Link styling – matches navigation button look */
+.rss-subscribe {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+.rss-subscribe a {
+    text-decoration: none;
+    color: #1a1a1a;
+    background-color: #e0dfc2;
+    padding: 6px 10px;
+    border: 1px solid #b5b3a3;
+    border-radius: 8px;
+    box-shadow: inset 1px 1px 0px #ffffff;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+    display: inline-block;
+    font-size: 16px;
+}
+.rss-subscribe a:hover {
+    background-color: #d1cfbc;
+}
+
+
 /* The thumbnail image */
 .article-thumb {
     width: 100px;
